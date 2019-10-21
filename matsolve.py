@@ -27,16 +27,17 @@ class GaussSolver:
     def upper(self):
         for i in range(self.n-1):
             for k in range((i+1),self.n):
-                off = mat[k][i] / mat[i][i]
+                off = self.mat[k][i] / self.mat[i][i]
                 for j in range(i,self.n+1):
-                    mat[k][j] -= off*mat[i][j]
+                    self.mat[k][j] -= off*self.mat[i][j]
     
     def solve(self):
+        self.upper()
         sol = []
         for i in range(self.n-1,-1,-1):
             coeff = self.mat[i][self.n]/self.mat[i][i]
             for j in range(i-1,-1,-1):
-                mat[j][self.n]-= coeff * mat[j][i]
+                self.mat[j][self.n]-= coeff * self.mat[j][i]
             sol.insert(0,coeff)
         
         return sol
@@ -55,6 +56,6 @@ if __name__ == '__main__':
     print(G.n)
     G.pivot()
     print(G.mat)
-    G.upper()
+    # G.upper()
     print(G.mat)
     print(G.solve())
