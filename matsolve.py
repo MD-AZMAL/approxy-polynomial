@@ -1,3 +1,9 @@
+#   MATRIX SOLVING HELPER LIBRARY
+#   ----------------------------
+#   Name : Md. Azmal
+#   Regno : 1741012060
+#   Branch : CSE 'F'
+#   Semester : 5th
 
 class GaussSolver:
 
